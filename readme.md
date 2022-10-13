@@ -1,6 +1,9 @@
 # multicall.py
+python interface for makerdao's [multicall](https://github.com/makerdao/multicall) and a port of [multicall.js](https://github.com/makerdao/multicall.js).
 
-python interface for makerdao's [multicall](https://github.com/makerdao/multicall) and a port of [multicall.js](https://github.com/makerdao/multicall.js)
+This fork supports multithreading/processing in dockerized env which breaks with original module, by disabling Async execution of w3 requests. 
+
+To enable threaded/parallel execution with docker set env variable ASYNC_W3=0.
 
 ## installation
 
@@ -69,3 +72,4 @@ use `Multicall(...)()` to get the result of a prepared multicall.
 - MULTICALL_DEBUG: if set, sets logging level for all library loggers to logging.DEBUG
 - MULTICALL_PROCESSES: pass an integer > 1 to use multiprocessing for encoding args and decoding results. Default: 1, which executes all code in the main process.
 - AIOHTTP_TIMEOUT: sets aiohttp timeout period in seconds for async calls to node. Default: 30
+- ASYNC_W3: enables/disables web3 async execution, 0 = Disable, 1 = Enable.
