@@ -79,5 +79,6 @@ AIOHTTP_TIMEOUT = ClientTimeout(int(os.environ.get("AIOHTTP_TIMEOUT", 30)))
 
 # Parallelism
 user_choice = max(1, int(os.environ.get("MULTICALL_PROCESSES", 1)))
+async_w3 = int(os.environ.get("ASYNC_W3", 1)) # Default ASYNC = 1 (1 = True, 0 = False)
 parallelism_capacity = max(1, os.cpu_count() - 1)
 NUM_PROCESSES = min(user_choice, parallelism_capacity)
