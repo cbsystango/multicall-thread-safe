@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "multicall"
+name = "multicall-thread-safe"
 version = "0.6.0"
-description = "aggregate results from multiple ethereum contract calls"
-authors = ["banteg"]
+description = "aggregate results from multiple ethereum contract calls, tweak to make project thread safe on docker"
+authors = ["cb"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
