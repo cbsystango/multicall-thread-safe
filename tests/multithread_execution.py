@@ -2,10 +2,9 @@
 import concurrent.futures
 import os
 
+from multicall_thread_safe.call import Call
+from multicall_thread_safe.multicall import Multicall
 from web3 import Web3
-
-from multicall.call import Call
-from multicall.multicall import Multicall
 
 os.putenv("ASYNC_W3", "0") # Disable Async W3
 w3 = Web3(provider=Web3.HTTPProvider("https://rpc.ankr.com/eth/"))

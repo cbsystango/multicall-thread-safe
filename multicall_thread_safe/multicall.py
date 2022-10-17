@@ -4,14 +4,23 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 
 import aiohttp
 import requests
+from multicall_thread_safe.call import Call
+from multicall_thread_safe.constants import (
+    GAS_LIMIT,
+    MULTICALL2_ADDRESSES,
+    MULTICALL2_BYTECODE,
+    MULTICALL_ADDRESSES,
+    w3,
+)
+from multicall_thread_safe.loggers import setup_logger
+from multicall_thread_safe.utils import (
+    await_awaitable,
+    chain_id,
+    gather,
+    run_in_subprocess,
+    state_override_supported,
+)
 from web3 import Web3
-
-from multicall import Call
-from multicall.constants import (GAS_LIMIT, MULTICALL2_ADDRESSES,
-                                 MULTICALL2_BYTECODE, MULTICALL_ADDRESSES, w3)
-from multicall.loggers import setup_logger
-from multicall.utils import (await_awaitable, chain_id, gather,
-                             run_in_subprocess, state_override_supported)
 
 logger = setup_logger(__name__)
 
