@@ -4,18 +4,17 @@ import eth_retry
 from eth_typing import Address, ChecksumAddress, HexAddress
 from eth_typing.abi import Decodable
 from eth_utils import to_checksum_address
-from web3 import Web3
-
-from multicall import Signature
-from multicall.constants import Network, async_w3
-from multicall.exceptions import StateOverrideNotSupported
-from multicall.loggers import setup_logger
-from multicall.utils import (
+from multicall_thread_safe.constants import Network, async_w3
+from multicall_thread_safe.exceptions import StateOverrideNotSupported
+from multicall_thread_safe.loggers import setup_logger
+from multicall_thread_safe.signature import Signature
+from multicall_thread_safe.utils import (
     chain_id,
     get_async_w3,
     run_in_subprocess,
     state_override_supported,
 )
+from web3 import Web3
 
 logger = setup_logger(__name__)
 
