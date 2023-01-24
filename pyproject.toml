@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "multicall-thread-safe"
-version = "0.1.3"
+version = "0.1.5"
 description = "Thread Safe Multicall for execution in containerised environments, tweaked from https://github.com/banteg/multicall.py"
 homepage = "https://github.com/cbsystango/multicall-thread-safe/"
 repository = "https://github.com/cbsystango/multicall-thread-safe/"
