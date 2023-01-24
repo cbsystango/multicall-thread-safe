@@ -4,10 +4,14 @@ from concurrent.futures import ProcessPoolExecutor
 from typing import Any, Awaitable, Callable, Coroutine, Dict, Iterable
 
 import eth_retry
-from multicall_thread_safe.constants import AIOHTTP_TIMEOUT, NUM_PROCESSES, Network
 from web3 import AsyncHTTPProvider, Web3
 from web3.eth import AsyncEth
 from web3.providers.async_base import AsyncBaseProvider
+
+from multicall.constants import (AIOHTTP_TIMEOUT, NO_STATE_OVERRIDE,
+                                 NUM_PROCESSES)
+from multicall_thread_safe.constants import (AIOHTTP_TIMEOUT, NUM_PROCESSES,
+                                             Network)
 
 chainids: Dict[Web3,int] = {}
 
@@ -82,6 +86,6 @@ async def gather(coroutines: Iterable[Coroutine]) -> None:
     return results
 
 def state_override_supported(w3: Web3) -> bool:
-    if chain_id(w3) in [ Network.Gnosis ]:
+    if chain_id(w3) in NO_STATE_OVERRIDE:
         return False
     return True
